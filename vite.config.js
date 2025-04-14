@@ -8,29 +8,35 @@ const manifestForPlugIn = {
   registerType:'prompt',
   includeAssests:['favicon.ico', "apple-touc-icon.png", "masked-icon.svg"],
   manifest:{
-    name:"React-vite-app",
-    short_name:"react-vite-app",
-    description:"I am a simple vite app",
+    name:"Verse of the Day",
+    short_name:"Verse of the Day",
+    description:"Verse of the Day App",
+    theme_color:'#171717',
+    background_color:'#f0e7db',
+    display:"standalone",
+    orientation:'portrait',
+    scope:'/',
+    start_url:"/",
     icons:[{
-      src: '/vite.svg',
+      src: '/holy-bible.png',
       sizes:'192x192',
       type:'image/png',
       purpose:'favicon'
     },
     {
-      src:'/vite.svg',
+      src:'/holy-bible.png',
       sizes:'512x512',
       type:'image/png',
       purpose:'favicon'
     },
     {
-      src: '/vite.svg',
+      src: '/holy-bible.png',
       sizes:'180x180',
       type:'image/png',
       purpose:'apple touch icon',
     },
     {
-      src: '/vite.svg',
+      src: '/holy-bible.png',
       sizes:'512x512',
       type:'image/png',
       purpose:'any maskable',
