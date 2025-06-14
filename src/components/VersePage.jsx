@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from './Loader.jsx'
 import axios from "axios";
 
 const VersePage = () => {
@@ -88,28 +89,31 @@ const VersePage = () => {
       </header>
       <main>
         {verse ? (
+          <>
           <div className="verse-container">
             <p className="verse-text">"{verse}"</p>
             <p className="verse-reference">{reference}</p>
             <p className="translation">{`[${translation}]`}</p>
           </div>
+          <div className="translation-div">
+          <button onClick={()=>{fetchTranslation(book,chapter,verseNum,"kjv")}} id="en-kjv" className="translation-button">
+            KJV
+          </button>
+          <button onClick={()=>{fetchTranslation(book,chapter,verseNum,"asv")}} id="en-asv" className="translation-button">
+            ASV
+          </button>
+          <button onClick={()=>{fetchTranslation(book,chapter,verseNum,"webbe")}} id="en-lsv" className="translation-button">
+            WEB-BE
+          </button>
+          <button onClick={()=>{fetchTranslation(book,chapter,verseNum,"web")}} id="en-webus" className="translation-button">
+            WEB
+          </button>
+          </div>
+          </>
         ) : (
-          <p>Loading...</p>
+          <Loader/>
         )}
-        <div className="translation-div">
-        <button onClick={()=>{fetchTranslation(book,chapter,verseNum,"kjv")}} id="en-kjv" className="translation-button">
-          KJV
-        </button>
-        <button onClick={()=>{fetchTranslation(book,chapter,verseNum,"asv")}} id="en-asv" className="translation-button">
-          ASV
-        </button>
-        <button onClick={()=>{fetchTranslation(book,chapter,verseNum,"webbe")}} id="en-lsv" className="translation-button">
-          WEB-BE
-        </button>
-        <button onClick={()=>{fetchTranslation(book,chapter,verseNum,"web")}} id="en-webus" className="translation-button">
-          WEB
-        </button>
-        </div>
+        
         <button onClick={handleGoBack}  className="go-back-button">
           Go Back
         </button>
